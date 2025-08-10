@@ -1,0 +1,117 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Bolt",
+	"patterns": [{
+		"include": "#comment"
+	}, {
+		"include": "#keywords"
+	}, {
+		"include": "#statement"
+	}],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.bolt",
+				"match": "\\b(if|else|for|return|break|continue|do|then)\\b"
+			}, {
+				"name": "keyword.operator.arithmetic.bolt",
+				"match": "(\\+|-|\\*|/)"
+			}, {
+				"name": "keyword.operator.other.bolt",
+				"match": "(>|>=|<|<=|=|==|=>|\\!=|\\?\\?)"
+			}, {
+				"name": "punctuation.bolt",
+				"match": "(\\.|,|:|\\!|\\?|\\?\\.)"
+			}, {
+				"name": "keyword.control.other.bolt",
+				"match": "\\b(function|fn|import|from|as|export|type|typeof|let|const|final|unsealed|enum|in|by|to|and|or|not|is|match)\\b"
+			}, {
+				"name": "entity.name.type",
+				"match": "\\b(any|number|string|bool|array|table|Type)\\b"
+			}]
+		},
+		"literals": {
+			"patterns": [{
+				"name": "constant.numeric.bolt",
+				"match": "\\d[\\d_]*(\\.[\\d_]+)?"
+			}, {
+				"name": "constant.language.bolt",
+				"match": "\\b(true|false|null)\\b"
+			}, {
+				"name": "variable.parameter.bolt",
+				"match": "\\bthis\\b"
+			},{
+				"name": "constant.other.array.bolt",
+				"begin": "\\[",
+				"end": "\\]",
+				"patterns": [{
+					"include": "#expression"
+				}]
+			}, {
+				"include": "#string"
+			}]
+		},
+		"string": {
+			"name": "string.quoted.double.bolt",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.bolt",
+					"match": "\\\\."
+				}
+			]
+		},
+		"identifier": {
+			"name": "variable.bolt",
+			"match": "\\b(@|_|\\w)(@|_|\\w|\\d)*\\b"
+		},
+		"code-block": {
+			"name": "meta.block.bolt",
+			"begin": "\\{",
+			"end": "\\}",
+			"patterns": [{
+				"include": "#comment"
+			}, {
+				"include": "#statement"
+			}]
+		},
+		"statement": {
+			"name": "meta.statement.bolt",
+			"patterns": [{
+				"include": "#keywords"
+			}, {
+				"include": "#expression"
+			}, {
+				"include": "#code-block"
+			}]
+		},
+		"expression": {
+			"name": "meta.expression.bolt",
+			"patterns": [{
+				"include": "#keywords"
+			}, {
+				"include": "#literals"
+			}, {
+				"include": "#identifier"
+			}, {
+				"include": "#code-block"
+			}]
+		},
+		"comment": {
+			"patterns": [
+				{
+					"name": "comment.line.bolt",
+					"begin": "//",
+					"end": "\\n"
+				},
+				{
+					"name": "comment.block.bolt",
+					"begin": "/\\*",
+					"end": "\\*/"
+				}
+			]
+		}
+	},
+	"scopeName": "source.bolt"
+}
