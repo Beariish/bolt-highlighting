@@ -55,13 +55,13 @@
             <key>name</key>
             <string>keyword.control.other.bolt</string>
             <key>match</key>
-            <string>\b(function|fn|import|from|as|export|type|typeof|let|const|final|unsealed|enum|in|by|to|and|or|not|is|match)\b</string>
+            <string>\b(fn|import|from|as|export|type|typeof|let|const|final|unsealed|enum|in|by|to|and|or|not|is|match)\b</string>
           </dict>
           <dict>
             <key>name</key>
             <string>entity.name.type</string>
             <key>match</key>
-            <string>\b(any|number|string|bool|array|table|Type)\b</string>
+            <string>\b(any|number|string|bool|array|table|module|Type)\b</string>
           </dict>
         </array>
       </dict>

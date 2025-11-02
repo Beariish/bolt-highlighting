@@ -16,9 +16,9 @@ repository:
                   - name: punctuation.bolt
                     match: (\.|,|:|\!|\?|\?\.)
                   - name: keyword.control.other.bolt
-                    match: \b(function|fn|import|from|as|export|type|typeof|let|const|final|unsealed|enum|in|by|to|and|or|not|is|match)\b
+                    match: \b(fn|import|from|as|export|type|typeof|let|const|final|unsealed|enum|in|by|to|and|or|not|is|match)\b
                   - name: entity.name.type
-                    match: \b(any|number|string|bool|array|table|Type)\b
+                    match: \b(any|number|string|bool|array|table|module|Type)\b
       literals:
             patterns:
                   - name: constant.numeric.bolt
