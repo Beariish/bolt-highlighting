@@ -65,10 +65,18 @@ repository:
                   - include: "#code-block"
       comment:
             patterns:
+                  - include: "#line-comment"
+                  - include: "#block-comment"
+      line-comment:
+            patterns:
                   - name: comment.line.bolt
                     begin: //
                     end: \n
+      block-comment:
+            patterns:
                   - name: comment.block.bolt
                     begin: /\*
                     end: \*/
+                    patterns:
+                          - include: "#block-comment"
 scopeName: source.bolt

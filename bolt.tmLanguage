@@ -202,6 +202,20 @@
         <key>patterns</key>
         <array>
           <dict>
+            <key>include</key>
+            <string>#line-comment</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#block-comment</string>
+          </dict>
+        </array>
+      </dict>
+      <key>line-comment</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
             <key>name</key>
             <string>comment.line.bolt</string>
             <key>begin</key>
@@ -209,6 +223,12 @@
             <key>end</key>
             <string>\n</string>
           </dict>
+        </array>
+      </dict>
+      <key>block-comment</key>
+      <dict>
+        <key>patterns</key>
+        <array>
           <dict>
             <key>name</key>
             <string>comment.block.bolt</string>
@@ -216,6 +236,13 @@
             <string>/\*</string>
             <key>end</key>
             <string>\*/</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#block-comment</string>
+              </dict>
+            </array>
           </dict>
         </array>
       </dict>
